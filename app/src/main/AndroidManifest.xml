@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="container.MainMenu.MainMenu"></activity>
+        <activity android:name=".Example"></activity>
+        <activity android:name="container.MainMenu.MainMenu" />
         <activity android:name="container.StartScreen.StartScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
