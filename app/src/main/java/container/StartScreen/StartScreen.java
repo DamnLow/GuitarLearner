@@ -1,17 +1,23 @@
 package container.StartScreen;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.guitarlearner.Example;
 import com.example.guitarlearner.R;
+
+import container.MainMenu.MainMenu;
 
 public class StartScreen extends AppCompatActivity {
 
     public void startOnClickHandler() {
-        Toast.makeText(this, "Test", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(StartScreen.this, MainMenu.class));
+
     }
 
     @Override
