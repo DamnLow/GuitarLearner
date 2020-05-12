@@ -1,14 +1,16 @@
-package com.example.guitarlearner;
+package container.MainMenu;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+import com.example.guitarlearner.R;
+
+public class MainMenu extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().hide();
-        setContentView(R.layout.start_activity);
+        setContentView(R.layout.activity_main_menu);
     }
 }
