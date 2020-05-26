@@ -1,5 +1,6 @@
 package container.MainMenu;
 
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -10,10 +11,13 @@ import android.widget.Button;
 import com.example.guitarlearner.Example;
 import com.example.guitarlearner.R;
 
+import Settings.Settings;
+import container.LearningScreen.LearningScreen;
+
 public class MainMenu extends AppCompatActivity {
 
-    public void navigateToExample() {
-        startActivity(new Intent(MainMenu.this, Example.class));
+    public void navigateToSettings() {
+        startActivity(new Intent(MainMenu.this, Settings.class));
     }
 
     @Override
@@ -21,14 +25,27 @@ public class MainMenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
 
-        Button example = (Button) findViewById(R.id.example);
+        Button setting = (Button) findViewById(R.id.settings);
+        Button learn = (Button) findViewById(R.id.learning);
 
-        example.setOnClickListener(new View.OnClickListener() {
+        setting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navigateToExample();
+                navigateToSettings();
             }
         });
+
+
+        learn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navigateToLearningScreen();
+            }
+        });
+    }
+
+    public void navigateToLearningScreen() {
+        startActivity(new Intent(MainMenu.this, LearningScreen.class));
     }
 
     @Override
