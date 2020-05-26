@@ -13,7 +13,6 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Switch;
 import android.widget.Toast;
 
 import com.example.guitarlearner.R;
@@ -21,9 +20,9 @@ import com.example.guitarlearner.R;
 import java.io.IOException;
 import java.util.UUID;
 
-import container.StartScreen.StartScreen;
-
 public class LearningScreen extends AppCompatActivity {
+
+    //TODO load settings & render image view according to settings
 
     MediaRecorder mediaRecorder;
     MediaPlayer mediaPlayer;

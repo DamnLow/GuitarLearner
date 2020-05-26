@@ -1,4 +1,4 @@
-package Settings;
+package SettingScreen;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,14 +9,18 @@ import android.widget.Switch;
 
 import com.example.guitarlearner.R;
 
-public class Settings extends AppCompatActivity implements View.OnClickListener{
-    //private boolean
+import model.Settings.Settings;
+
+public class SettingScreen extends AppCompatActivity implements View.OnClickListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_settings);
+
+        //TODO: save and load settings
+        Settings set = new Settings();
 
         //tabs
         Switch tab = (Switch) findViewById(R.id.settings_tab);
@@ -46,4 +50,5 @@ public class Settings extends AppCompatActivity implements View.OnClickListener{
                 break;
         }
     }
+
 }

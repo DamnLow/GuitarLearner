@@ -8,16 +8,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.guitarlearner.Example;
 import com.example.guitarlearner.R;
 
-import Settings.Settings;
+import SettingScreen.SettingScreen;
 import container.LearningScreen.LearningScreen;
 
 public class MainMenu extends AppCompatActivity {
 
     public void navigateToSettings() {
-        startActivity(new Intent(MainMenu.this, Settings.class));
+        startActivity(new Intent(MainMenu.this, SettingScreen.class));
     }
 
     @Override
