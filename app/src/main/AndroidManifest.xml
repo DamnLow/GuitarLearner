@@ -4,6 +4,8 @@
     package="com.example.guitarlearner">
 
     <dist:module dist:instant="true" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -12,8 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="Settings.Settings"></activity>
-        <activity android:name="container.LearningScreen.LearningScreen"></activity>
+        <activity android:name="Settings.Settings" />
+        <activity android:name="container.LearningScreen.LearningScreen" />
         <activity android:name=".Example" />
         <activity android:name="container.MainMenu.MainMenu" />
         <activity android:name="container.StartScreen.StartScreen">
