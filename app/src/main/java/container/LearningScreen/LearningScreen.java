@@ -13,11 +13,11 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Switch;
 import android.widget.Toast;
 
 import com.example.guitarlearner.R;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.UUID;
 
@@ -37,14 +37,19 @@ public class LearningScreen extends AppCompatActivity {
         setContentView(R.layout.activity_learning_screen);
 
         //Request Runtime permission
-        if(!checkPermissionFromDevice())
+        if(!checkPermissionFromDevice()) {
+            System.out.println("Permissions");
             requestPermission();
+        }
 
         // init View
         final Button record = (Button) findViewById(R.id.record);
+        final Button stopRecord = (Button) findViewById(R.id.stopRecord);
         final Button play = (Button) findViewById(R.id.play);
         final Button stop = (Button) findViewById(R.id.stop);
-        final Button stopRecord = (Button) findViewById(R.id.stopRecord);
+
+        stop.setEnabled(false);
+        stopRecord.setEnabled(false);
 
         record.setOnClickListener(new View.OnClickListener() {
 
@@ -52,16 +57,21 @@ public class LearningScreen extends AppCompatActivity {
             public void onClick(View view) {
 
                 if(checkPermissionFromDevice()) {
-                    pathSave = Environment.getExternalStorageState() + "/"
-                            + UUID.randomUUID().toString() + "_audio_record.3gp";
+                    pathSave = getApplicationContext().getFilesDir().getPath() + "/"
+                            + "_audio_record.3gp";
+                    File file = new File(pathSave);
+
                     setupMediaRecorder();
                     try{
                         mediaRecorder.prepare();
+                        System.out.println("Prepared...");
                         mediaRecorder.start();
+                        System.out.println("Recording...");
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
                     play.setEnabled(false);
+                    stopRecord.setEnabled(true);
 
                     Toast.makeText(LearningScreen.this, "Recording...", Toast.LENGTH_SHORT).show();
                 } else{
@@ -73,8 +83,11 @@ public class LearningScreen extends AppCompatActivity {
         stopRecord.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                System.out.println(mediaRecorder);
                 mediaRecorder.stop();
+                mediaRecorder.release();
                 stop.setEnabled(false);
+                stopRecord.setEnabled(false);
                 play.setEnabled(true);
                 record.setEnabled(true);
             }
@@ -86,6 +99,7 @@ public class LearningScreen extends AppCompatActivity {
                 stop.setEnabled(true);
                 stopRecord.setEnabled(false);
                 record.setEnabled(false);
+                play.setEnabled(false);
 
                 mediaPlayer = new MediaPlayer();
                 try {
@@ -120,9 +134,12 @@ public class LearningScreen extends AppCompatActivity {
 
     private void setupMediaRecorder() {
         mediaRecorder = new MediaRecorder();
+        System.out.println("Initialized...");
         mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
         mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
+        System.out.println("Data source configured...");
         mediaRecorder.setAudioEncoder(MediaRecorder.OutputFormat.AMR_NB);
+        System.out.println(pathSave);
         mediaRecorder.setOutputFile(pathSave);
     }
 
