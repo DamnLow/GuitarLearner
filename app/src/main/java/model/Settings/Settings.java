@@ -1,4 +1,4 @@
-package model.Setting;
+package model.Settings;
 
 public class Settings {
 }

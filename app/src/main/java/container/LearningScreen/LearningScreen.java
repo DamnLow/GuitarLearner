@@ -57,8 +57,7 @@ public class LearningScreen extends AppCompatActivity {
             public void onClick(View view) {
 
                 if(checkPermissionFromDevice()) {
-                    pathSave = getApplicationContext().getFilesDir().getPath() + "/"
-                            + "_audio_record.3gp";
+                    pathSave = getApplicationContext().getFilesDir().getPath() + "/input_chord.3gp";
                     File file = new File(pathSave);
 
                     setupMediaRecorder();

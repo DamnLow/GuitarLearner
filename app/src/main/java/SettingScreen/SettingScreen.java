@@ -2,6 +2,7 @@ package SettingScreen;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,9 +10,20 @@ import android.widget.Switch;
 
 import com.example.guitarlearner.R;
 
-//import model.Settings.*;
+import container.MainMenu.MainMenu;
+import model.Settings.Settings;
+
 
 public class SettingScreen extends AppCompatActivity implements View.OnClickListener{
+
+    private Settings localSettings;
+
+    public void navigateToMainMenu(){
+        startActivity(new Intent(SettingScreen.this, MainMenu.class));
+    }
+
+    public void save() {
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +49,10 @@ public class SettingScreen extends AppCompatActivity implements View.OnClickList
         // cancel button
         Button cancel = (Button) findViewById(R.id.settings_cancel);
 
+        cancel.setOnClickListener(this);
+
+
+
         // title text view
         // mic calibration?
     }
@@ -47,6 +63,7 @@ public class SettingScreen extends AppCompatActivity implements View.OnClickList
             case R.id.settings_save:
                 break;
             case R.id.settings_cancel:
+                navigateToMainMenu();
                 break;
         }
     }

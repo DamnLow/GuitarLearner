@@ -12,8 +12,19 @@ import com.example.guitarlearner.R;
 
 import SettingScreen.SettingScreen;
 import container.LearningScreen.LearningScreen;
+import model.Settings.Settings;
 
 public class MainMenu extends AppCompatActivity {
+
+    public Settings getSettings() {
+        return globalSettings;
+    }
+
+    public void setSettings(Settings settings) {
+        this.globalSettings = settings;
+    }
+
+    private Settings globalSettings;
 
     public void navigateToSettings() {
         startActivity(new Intent(MainMenu.this, SettingScreen.class));
@@ -23,6 +34,8 @@ public class MainMenu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
+
+        globalSettings = new Settings();
 
         Button setting = (Button) findViewById(R.id.settings);
         Button learn = (Button) findViewById(R.id.learning);
