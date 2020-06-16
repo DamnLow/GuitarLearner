@@ -9,7 +9,7 @@ import android.widget.Switch;
 
 import com.example.guitarlearner.R;
 
-import model.Settings.Settings;
+//import model.Settings.*;
 
 public class SettingScreen extends AppCompatActivity implements View.OnClickListener{
 
@@ -20,7 +20,7 @@ public class SettingScreen extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_settings);
 
         //TODO: save and load settings
-        Settings set = new Settings();
+        //Settings set = new Settings();
 
         //tabs
         Switch tab = (Switch) findViewById(R.id.settings_tab);
